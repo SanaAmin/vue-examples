@@ -1,6 +1,6 @@
 <template>
   <div class="my-options-container">
-    <select v-model="mySelectedOptions" v-on:change="onChange($event, mySelectedOptions)" multiple>
+    <select v-model="mySelectedOptions" v-on:change="onChange($event, mySelectedOptions)">
       <option disabled value="">Please select</option>
       <option v-for="option in optionList" v-bind:value="option">
         {{ option.value}}

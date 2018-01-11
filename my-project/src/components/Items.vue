@@ -2,6 +2,7 @@
   <div>
     <h2>{{ welcomeMessage }}</h2>
     <!-- on-change-items is an event emitted from child -->
+    <!-- Can't listen to child event with $on. It has to be with v-on in template. -->
     <my-options v-on:on-change-items="onChangeItems"></my-options>
     <div class="my-items-list">
       <my-item v-for="item in selectedItems" :key="item.key" v-bind:item="item"></my-item>
@@ -27,7 +28,7 @@
     },
     methods: {
       onChangeItems: function (payload) {
-        this.selectedItems = payload.options
+        this.selectedItems.push(payload.options)
       },
       clearItems: function () {
         this.selectedItems = []
